@@ -12,10 +12,11 @@ namespace Booking_system_backend.Context
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Appointment> Appointments { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>().ToTable("users");
+            modelBuilder.Entity<Appointment>().ToTable("appointments");
         }
-
     }
 }

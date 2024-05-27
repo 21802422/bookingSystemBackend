@@ -26,10 +26,7 @@ namespace Booking_system_backend.Controllers
                 .FirstOrDefaultAsync(x => x.Email == userObj.Email  && x.Password == userObj.Password);
             if(user == null)
                 return NotFound(new { message = "User Not Found!" });
-            return Ok(new
-            {
-                message = "Login Success!"
-            });
+            return Ok(user);
         }
         [HttpPost("register")]
         public async Task<IActionResult> RegisterUser([FromBody] User userObj)

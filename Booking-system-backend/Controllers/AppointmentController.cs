@@ -21,9 +21,15 @@ namespace Booking_system_backend.Controllers
         {
             try
             {
+                appointment.UpdatedDate = DateTime.Now;
+                appointment.CreatedDate = DateTime.Now;
                 _appContext.Appointments.Add(appointment);
                 _appContext.SaveChanges();
-                return Ok("Appointment created successfully");
+                return Ok(new GenericResponse
+                {
+                    Message = "Appointment created successfully",
+                    Success = true
+                });
             }
             catch (Exception ex)
             {
@@ -32,3 +38,4 @@ namespace Booking_system_backend.Controllers
         }
     }
 }
+

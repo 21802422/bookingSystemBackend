@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Booking_system_backend.Models
 {
@@ -7,7 +8,9 @@ namespace Booking_system_backend.Models
     {
         [Key]
         public int AppointmentID { get; set; }
-        public int ForeignId { get; set; }
+        [ForeignKey("User")]
+        public int UserId { get; set; }
+        public User User { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime UpdatedDate { get; set; }
         public DateTime AppointmentDate { get; set; }
